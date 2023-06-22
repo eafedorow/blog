@@ -1,0 +1,23 @@
+.Sidebar {
+    height: calc(100vh - var(--navbar-height));
+    width: var(--sidebar-width);
+    background: var(--inverted-bg-color);
+    transition: 0.2s;
+
+    display: grid;
+    grid-template-rows: max-content 1fr max-content;
+    padding: 10px 20px;
+}
+
+.switchers {
+    grid-row-start: 3;
+    width: 100%;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+}
+
+.collapsed {
+    width: var(--sidebar-width-collapsed);
+    padding: 10px 10px;
+}
