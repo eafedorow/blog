@@ -1,4 +1,4 @@
-import { classNames } from "./classNames";
+import { classNames } from './classNames';
 
 describe('classNames', () => {
     test('with first only param', () => {
@@ -14,8 +14,8 @@ describe('classNames', () => {
         const expected = 'someClass hovered scrollable class1 class2';
         expect(classNames(
             'someClass',
-            {hovered: true, scrollable: true},
-            ['class1', 'class2']
+            { hovered: true, scrollable: true },
+            ['class1', 'class2'],
         )).toBe(expected);
     });
 
@@ -23,8 +23,8 @@ describe('classNames', () => {
         const expected = 'someClass hovered class1 class2';
         expect(classNames(
             'someClass',
-            {hovered: true, scrollable: false},
-            ['class1', 'class2']
+            { hovered: true, scrollable: false },
+            ['class1', 'class2'],
         )).toBe(expected);
     });
 
@@ -32,8 +32,8 @@ describe('classNames', () => {
         const expected = 'someClass scrollable class1 class2';
         expect(classNames(
             'someClass',
-            {hovered: undefined, scrollable: true},
-            ['class1', 'class2']
+            { hovered: undefined, scrollable: true },
+            ['class1', 'class2'],
         )).toBe(expected);
     });
-})
+});
