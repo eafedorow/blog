@@ -3,33 +3,17 @@
  * https://jestjs.io/docs/configuration
  */
 
+import path from 'path';
+
 export default {
-    // All imported modules in your tests should be mocked automatically
-    // automock: false,
-
-    // Stop running tests after `n` failures
-    // bail: 0,
-
-    // The directory where Jest should store its cached dependency information
-    // cacheDirectory: "C:\\Users\\eafed\\AppData\\Local\\Temp\\jest",
-
-    // Automatically clear mock calls, instances and results before every test
+    globals: {
+        __IS_DEV__: true,
+    },
     clearMocks: true,
-
-    // The test environment that will be used for testing
     testEnvironment: 'jsdom',
-
-    // An array of regexp pattern strings used to skip coverage collection
     coveragePathIgnorePatterns: [
         '\\\\node_modules\\\\',
     ],
-
-    // An array of directory names to be searched recursively up from the requiring module's location
-    moduleDirectories: [
-        'node_modules',
-    ],
-
-    // An array of file extensions your modules use
     moduleFileExtensions: [
         'js',
         'jsx',
@@ -38,14 +22,22 @@ export default {
         'json',
         'node',
     ],
-
-    // The root directory that Jest should scan for tests and modules within
-    rootDir: '../../',
-
-    // The glob patterns Jest uses to detect test files
+    moduleDirectories: [
+        'node_modules',
+    ],
+    modulePaths: [
+        '<rootDir>src',
+    ],
     testMatch: [
+        // Обнаружил разницу между МАК ОС и ВИНДОУС!!!
         '<rootDir>src/**/*(*.)@(spec|test).[tj]s?(x)',
     ],
+    rootDir: '../../',
+    setupFilesAfterEnv: ['<rootDir>config/jest/setupTests.ts'],
+    moduleNameMapper: {
+        '\\.s?css$': 'identity-obj-proxy',
+        '\\.svg': path.resolve(__dirname, 'jestEmptyComponent.tsx'),
+    },
 
     // Indicates whether the coverage information should be collected while executing the test
     // collectCoverage: false,
