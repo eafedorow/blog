@@ -1,0 +1,9 @@
+name: Blog Actions
+on: [push]
+jobs:
+  Explore-GitHub-Actions:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Hello CI/CD"
+      - name: Check out repository code
+        uses: actions/checkout@v2
