@@ -21,6 +21,10 @@ jobs:
         run: npm install
       - name: build production
         run: npm run build:prod
+      - name: fixed lint typescript
+        run: npm run lint:ts:fix
+      - name: fixed lint scss
+        run: npm run lint:scss:fix
       - name: linting typescript
         run: npm run lint:ts
       - name: linting scss
