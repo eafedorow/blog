@@ -29,10 +29,53 @@
     transition: 0.2s;
 }
 
+.linksList {
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+    width: 100%;
+    transition: 0.2s;
+
+    .link + .link {
+        margin-top: 20px;
+    }
+}
+
+.link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.2s;
+
+    &:hover {
+        color: var(--primary-color);
+
+        .linkIcon {
+            fill: var(--primary-color);
+        }
+    }
+}
+
+.linkIcon {
+    fill: var(--secondary-color);
+    transition: 0.2s;
+    margin-right: 10px;
+}
+
+
 .collapsed {
     width: var(--sidebar-width-collapsed);
     padding: 10px 10px 20px;
+
+    .link {
+        font-size: 0;
+    }
+
+    .linkIcon {
+        margin-right: 0;
+    }
 }
+
 
 
 
