@@ -1,8 +1,8 @@
 .Button {
     cursor: pointer;
-    padding: 10px 15px;
     background: var(--primary-color);
     border: 1px solid transparent;
+    padding: 10px 15px;
 }
 
 .clear {
@@ -17,4 +17,69 @@
     border: 1px solid var(--primary-color);
     color: var(--primary-color);
     background: none;
+}
+
+.background {
+    background: var(--primary-color);
+    color: var(--bg-color);
+    border: none;
+}
+
+.square {
+    padding: 0;
+    border-radius: 2px;
+
+    &.sizeM {
+        width: var(--font-line-m);
+        height: var(--font-line-m);
+        font: var(--font-m);
+    }
+
+    &.sizeL {
+        width: var(--font-line-l);
+        height: var(--font-line-l);
+        font: var(--font-l);
+    }
+
+    &.sizeXL {
+        width: var(--font-line-xl);
+        height: var(--font-line-xl);
+        font: var(--font-xl);
+    }
+}
+
+.rectangle {
+    border-radius: 4px;
+    padding: 0;
+
+    &.sizeM {
+        width: calc(var(--font-line-m) / 2);
+        height: var(--font-line-m);
+        font: var(--font-m);
+        padding: 2px 2px
+    }
+
+    &.sizeL {
+        width: calc(var(--font-line-l) / 2);
+        height: var(--font-line-l);
+        font: var(--font-l);
+    }
+
+    &.sizeXL {
+        width: calc(var(--font-line-xl) / 2);
+        height: var(--font-line-xl);
+        font: var(--font-xl);
+    }
+}
+
+.sizeM {
+    font: var(--font-m);
+}
+
+.sizeL {
+    font: var(--font-l);
+}
+
+.sizeXL {
+    font: var(--font-xl);
 }

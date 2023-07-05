@@ -1,4 +1,5 @@
 .Sidebar {
+    position: relative;
     height: calc(100vh - var(--navbar-height));
     width: var(--sidebar-width);
     background: var(--inverted-bg-color);
@@ -20,7 +21,18 @@
     margin-top: 15px;
 }
 
+.collapseBtn {
+    position: absolute;
+    right: 0;
+    bottom: 100px;
+    transform: translate(50%,0);
+    transition: 0.2s;
+}
+
 .collapsed {
     width: var(--sidebar-width-collapsed);
     padding: 10px 10px 20px;
 }
+
+
+
