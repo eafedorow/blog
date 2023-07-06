@@ -4,13 +4,17 @@
     border: 1px solid transparent;
     padding: 10px 15px;
 }
-
+.clearInverted,
 .clear {
     padding: 0;
     margin: 0;
     border: none;
     outline: none;
     background: none;
+}
+
+.clearInverted {
+    color: var(--secondary-color);
 }
 
 .outline {
