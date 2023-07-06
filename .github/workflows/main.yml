@@ -25,9 +25,9 @@ jobs:
         run: npm run lint:ts:fix
       - name: fixed lint scss
         run: npm run lint:scss:fix
-      - name: linting typescript
+      - name: checking linting typescript
         run: npm run lint:ts
-      - name: linting scss
+      - name: checking linting scss
         run: npm run lint:scss
       - name: unit testing
         run: npm run test:unit
