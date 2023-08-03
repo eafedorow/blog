@@ -28,11 +28,17 @@
     max-width: 60%;
 }
 
-.opened {
+.isOpening {
     opacity: 1;
     pointer-events: all;
 
     .content {
         transform: scale(1);
+    }
+}
+
+.isClosing {
+    .content {
+        transform: scale(0.5);
     }
 }

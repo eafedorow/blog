@@ -1,6 +1,6 @@
 import { classNames } from 'shared/lib/classNames/classNames';
 import React, {
-    ReactNode, useCallback, useEffect, useState,
+    ReactNode, useCallback, useEffect, useRef, useState,
 } from 'react';
 import { Portal } from 'shared/ui/Portal/Portal';
 import cls from './Modal.module.scss';
@@ -13,6 +13,8 @@ interface ModalProps {
     isLazy?: boolean;
 }
 
+const ANIMATION_DELAY = 200;
+
 export const Modal = (props: ModalProps) => {
     const {
         className,
@@ -22,11 +24,27 @@ export const Modal = (props: ModalProps) => {
         onClose,
     } = props;
 
+    const [isOpening, setIsOpening] = useState(false);
+    const [isClosing, setIsClosing] = useState(false);
     const [isMounted, setIsMounted] = useState(false);
+    const timerRef = useRef<ReturnType<typeof setTimeout>>();
+
+    useEffect(() => {
+        if (isOpen) {
+            setIsMounted(true);
+        }
+        return () => {
+            setIsMounted(false);
+        };
+    }, [isOpen]);
 
     const closeHandler = useCallback(() => {
         if (onClose) {
-            onClose();
+            setIsClosing(true);
+            timerRef.current = setTimeout(() => {
+                onClose();
+                setIsClosing(false);
+            }, ANIMATION_DELAY);
         }
     }, [onClose]);
 
@@ -42,22 +60,22 @@ export const Modal = (props: ModalProps) => {
 
     useEffect(() => {
         if (isOpen) {
+            timerRef.current = setTimeout(() => {
+                setIsOpening(true);
+            }, 0);
             window.addEventListener('keydown', onKeyDown);
         }
 
         return () => {
+            setIsOpening(false);
+            clearTimeout(timerRef.current);
             window.removeEventListener('keydown', onKeyDown);
         };
     }, [isOpen, onKeyDown]);
 
-    useEffect(() => {
-        if (isOpen) {
-            setIsMounted(true);
-        }
-    }, [isOpen]);
-
     const mods: Record<string, boolean> = {
-        [cls.opened]: isOpen,
+        [cls.isClosing]: isClosing,
+        [cls.isOpening]: isOpening,
     };
 
     if (isLazy && !isMounted) {
@@ -69,7 +87,7 @@ export const Modal = (props: ModalProps) => {
             <div className={classNames(cls.Modal, mods, [className])}>
                 <div className={cls.overlay} onClick={closeHandler}>
                     <div className={cls.content} onClick={onContentClick}>
-                        {children}
+                        { children }
                     </div>
                 </div>
             </div>
