@@ -1,0 +1,35 @@
+.InputWrapper {
+    position: relative;
+}
+
+.placeholder {
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: 0.2s;
+    pointer-events: none;
+    background: var(--bg-color);
+    line-height: 100%;
+    padding: 0 3px;
+    font-size: 18px;
+
+    &.focusedPlaceholder {
+        top: 0;
+        font-size: 14px;
+    }
+}
+
+.input {
+    background: transparent;
+    border: 1px solid var(--primary-color);
+    outline: none;
+    padding: 8px 10px;
+    border-radius: 6px;
+    width: 100%;
+    color: var(--text-color);
+
+    &:focus {
+        outline: none;
+    }
+}
