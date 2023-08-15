@@ -4,6 +4,7 @@
     border: 1px solid transparent;
     padding: 10px 15px;
 }
+
 .clearInverted,
 .clear {
     padding: 0;
@@ -85,4 +86,8 @@
 
 .sizeXL {
     font: var(--font-xl);
+}
+
+.disabled {
+    opacity: 0.5;
 }

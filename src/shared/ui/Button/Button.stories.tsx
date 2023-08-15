@@ -141,3 +141,10 @@ RectangleXL.args = {
     rectangle: true,
     size: ButtonSize.XL,
 };
+
+export const Disabled = Template.bind({});
+Disabled.args = {
+    children: 'Sample Text',
+    theme: ButtonTheme.OUTLINE,
+    disabled: true
+};
