@@ -3,11 +3,11 @@ import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
 import { Button, ButtonTheme } from 'shared/ui/Button/Button';
 import { LoginModal } from 'features/AuthByUsername';
+import { getUserAuthData, userActions } from 'entities/User';
+import { useDispatch, useSelector } from 'react-redux';
 import cls from './Navbar.module.scss';
-import {getUserAuthData, userActions} from 'entities/User';
-import {useDispatch, useSelector} from 'react-redux';
 
-interface NavbarProps  {
+interface NavbarProps {
     className?: string;
 }
 
@@ -53,10 +53,13 @@ const Navbar = ({ className }: NavbarProps) => {
                 { t('Войти') }
             </Button>
 
-            <LoginModal
-                isOpen={isAuthModal}
-                onClose={onCloseModal}
-            />
+            {isAuthModal
+                && (
+                    <LoginModal
+                        isOpen={isAuthModal}
+                        onClose={onCloseModal}
+                    />
+                )}
         </div>
     );
 };
