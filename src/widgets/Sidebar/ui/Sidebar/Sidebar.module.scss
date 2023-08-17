@@ -29,38 +29,9 @@
     transition: 0.2s;
 }
 
-.linkIcon {
-    fill: var(--secondary-color);
-    transition: 0.2s;
-    margin-right: 10px;
-}
-
-.link {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: 0.2s;
-}
-
 .collapsed {
     width: var(--sidebar-width-collapsed);
     padding: 10px 10px 20px;
-
-    .link {
-        font-size: 0;
-    }
-
-    .linkIcon {
-        margin-right: 0;
-    }
-}
-
-.link:hover {
-    color: var(--primary-color);
-
-    .linkIcon {
-        fill: var(--primary-color);
-    }
 }
 
 .linksList {
@@ -69,8 +40,4 @@
     margin-top: 20px;
     width: 100%;
     transition: 0.2s;
-
-    .link + .link {
-        margin-top: 20px;
-    }
 }
