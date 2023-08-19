@@ -2,10 +2,10 @@ import { classNames } from 'shared/lib/classNames/classNames';
 import { useTheme } from 'app/providers/ThemeProvider';
 import { Navbar } from 'widgets/Navbar';
 import { Sidebar } from 'widgets/Sidebar';
-import {Suspense, useEffect} from 'react';
+import { Suspense, useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { userActions } from 'entities/User';
 import { AppRouter } from './providers/Router';
-import {useDispatch} from "react-redux";
-import {userActions} from "entities/User";
 
 const App = () => {
     const { theme } = useTheme();
@@ -13,7 +13,7 @@ const App = () => {
 
     useEffect(() => {
         dispatch(userActions.initAuthData());
-    }, [dispatch])
+    }, [dispatch]);
 
     return (
         <div className={classNames('app', {}, [theme])}>
