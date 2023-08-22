@@ -6,21 +6,20 @@ import { SidebarItemType } from '../../model/items';
 import cls from './SidebarItem.module.scss';
 
 interface SidebarItemProps {
-    item?: SidebarItemType;
+    item: SidebarItemType;
     isCollapsed?: boolean;
 }
 
 export const SidebarItem = memo(({ item, isCollapsed }: SidebarItemProps) => {
     const { t } = useTranslation();
-
     return (
         <AppLink
             className={classNames(cls.link, { [cls.collapsed]: isCollapsed }, [])}
-            to={item.path}
+            to={item?.path || ''}
             theme={AppLinkTheme.SECONDARY}
         >
             <item.Icon className={cls.linkIcon} />
-            {t(item.text)}
+            {t(item?.text || '')}
         </AppLink>
     );
 });

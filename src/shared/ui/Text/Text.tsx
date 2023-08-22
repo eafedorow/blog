@@ -19,7 +19,7 @@ export const Text = memo((props: TextProps) => {
         title,
         text,
         className,
-        theme,
+        theme = TextTheme.DEFAULT,
     } = props;
 
     return (
