@@ -1,5 +1,6 @@
 .InputWrapper {
     position: relative;
+    transition: 0.2s;
 }
 
 .placeholder {
@@ -32,4 +33,8 @@
     &:focus {
         outline: none;
     }
+}
+
+.readonly {
+    opacity: 0.6;
 }

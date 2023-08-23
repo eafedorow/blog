@@ -47,7 +47,9 @@ export const Sidebar = memo(({ className }: SidebarProps) => {
             </Button>
 
             <div className={cls.switchers}>
-                <ThemeSwitcher />
+                <ThemeSwitcher
+                    className={cls.themeSwitcher}
+                />
                 <LangSwitcher
                     className={cls.lang}
                     short={isCollapsed}

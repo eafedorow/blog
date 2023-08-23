@@ -4,6 +4,7 @@ import MoonIcon from 'shared/assets/icons/moon.svg';
 import SunIcon from 'shared/assets/icons/sun.svg';
 import { Button, ButtonTheme } from 'shared/ui/Button/Button';
 import { memo } from 'react';
+import cls from './ThemeSwitcher.module.scss';
 
 interface ThemeSwitcherProps {
     className?: string;
@@ -18,7 +19,11 @@ export const ThemeSwitcher = memo(({ className }: ThemeSwitcherProps) => {
             onClick={toggleTheme}
             theme={ButtonTheme.CLEAR}
         >
-            { theme === Theme.DEFAULT ? <SunIcon /> : <MoonIcon />}
+            {
+                theme === Theme.DEFAULT
+                    ? <SunIcon className={cls.defaultTheme} />
+                    : <MoonIcon className={cls.darkTheme} />
+            }
         </Button>
     );
 });

@@ -21,6 +21,12 @@
     margin-top: 15px;
 }
 
+.themeSwitcher {
+    path {
+        fill: var(--primary-color);
+    }
+}
+
 .collapseBtn {
     position: absolute;
     right: 0;

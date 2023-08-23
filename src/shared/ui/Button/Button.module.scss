@@ -12,16 +12,23 @@
     border: none;
     outline: none;
     background: none;
+    color: var(--primary-color);
 }
 
 .clearInverted {
     color: var(--secondary-color);
 }
 
+.outline-warning,
 .outline {
     border: 1px solid var(--primary-color);
     color: var(--primary-color);
     background: none;
+}
+
+.outline-warning {
+    color: var(--red-light);
+    border-color: var(--red-light);
 }
 
 .background {
