@@ -41,12 +41,12 @@
     }
   ],
   "profile": {
-    "first": "Евген",
-    "lastname": "Фёд",
-    "age": 2,
+    "first": "Евгений",
+    "lastname": "Фёдоров",
+    "age": 22,
     "currency": "RUB",
     "country": "Russia",
-    "city": "Volog",
+    "city": "Something",
     "username": "eafedorow",
     "avatar": "https://phonoteka.org/uploads/posts/2022-06/1654157806_60-phonoteka-org-p-gubka-bob-oboi-krasivo-62.jpg"
   }

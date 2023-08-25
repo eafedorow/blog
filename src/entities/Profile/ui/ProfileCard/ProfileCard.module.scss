@@ -1,6 +1,7 @@
 .ProfileCard {
     padding: 20px;
     border: 2px solid var(--inverted-bg-color);
+    transition: 0.2s;
 }
 
 .input {
@@ -15,4 +16,15 @@
     align-items: center;
     justify-content: center;
     height: 300px;
+}
+
+
+.avatarWrapper {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.editing {
+    border-color: var(--primary-color);
 }
