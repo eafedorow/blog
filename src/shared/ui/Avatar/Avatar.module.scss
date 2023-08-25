@@ -1,6 +1,4 @@
 .AvatarContainer {
-    border-radius: 8px;
-    border: 3px solid var(--primary-color);
     width: 100px;
     height: 100px;
     transition: 0.2s;
@@ -17,5 +15,5 @@
     width: 100%;
     object-fit: cover;
     border-radius: 8px;
+    border: 3px solid var(--primary-color);
 }
-

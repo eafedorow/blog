@@ -18,4 +18,8 @@ const Template: ComponentStory<typeof Select> = (args) => <Select {...args} />;
 export const Primary = Template.bind({});
 Primary.args = {
     placeholder: 'Sample placeholder',
+    options: [
+        { value: '1', content: 'Первый пункт' },
+        { value: '2', content: 'Второй пункт' },
+    ],
 };
