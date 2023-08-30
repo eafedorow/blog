@@ -4,7 +4,7 @@ import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/Dynamic
 import {
     fetchProfileData,
     getProfileError, getProfileForm,
-    getProfileIsLoading, getProfileReadonly,
+    getProfileIsLoading, getProfileReadonly, getProfileValidateErrors,
     profileActions,
     ProfileCard,
     profileReducer,
@@ -13,6 +13,7 @@ import { useAppDispatch } from 'shared/lib/hooks/useAppDispathc/useAppDispatch';
 import { useSelector } from 'react-redux';
 import { Currency } from 'entities/Currency';
 import { Country } from 'entities/Country';
+import { TextTheme, Text } from 'shared/ui/Text/Text';
 import { ProfilePageHeader } from './ProfilePageHeader/ProfilePageHeader';
 
 const reducers: ReducersList = {
@@ -29,6 +30,7 @@ const ProfilePage = memo(({ className }: ProfilePageProps) => {
     const isLoading = useSelector(getProfileIsLoading);
     const error = useSelector(getProfileError);
     const readonly = useSelector(getProfileReadonly);
+    const validateErrors = useSelector(getProfileValidateErrors);
 
     useEffect(() => {
         dispatch(fetchProfileData());
@@ -69,6 +71,9 @@ const ProfilePage = memo(({ className }: ProfilePageProps) => {
     return (
         <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
             <ProfilePageHeader />
+            { validateErrors?.length && validateErrors.map((err) => (
+                <Text theme={TextTheme.ERROR} text={err} />
+            ))}
             <div className={classNames('', {}, [className])}>
                 <ProfileCard
                     data={formData}
